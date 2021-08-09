@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+{% block content  %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 mx-auto">
+			<div class="card mb-3 mx-auto" style="max-width: 30rem;">
+			  <div class="card-header text-white" style="background-color: #417690;"><h5>Challan Details</h5></div>
+			  <div class="card-body">
+			    <h6 class="card-title">Vehicle Registration No.: {{vrn}}</h6><hr>
+			    {% if isData %}
+			    <h6 class="card-title">Registered Owner: {{owner}}</h6><hr>
+			    <h6 class="card-title">Challan Issued for: {{rulecat}}</h6><hr>
+			    <h6 class="card-title">At place: {{place}}</h6><hr>
+			    <h6 class="card-title">At time: {{time}}</h6><hr>
+			    <p class="text-danger ">Pay your challan as soon as possible or in case have an objection take an appointment and meet our officer.</p><hr>
+			    <!-- <a href="#" class="btn btn-primary">Pay Your Challan</a>
+			    <a href="#" class="btn btn-primary">Take Appointment</a> -->
+			    {% else %}
+			    <p class="text-success">No data exists in defaulter database for the entered Vehicle Registration Number. Please Check entered data.</p><hr>
+			    {% endif %}
+			    <a href="/" class="btn btn-primary">Back</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "./base.html" %}
+{% block content  %}
+<div class="container">
+	<div class="row">
+		<h4>Defaulter's List</h4>
+		<hr>
+		<table class="table table-striped">
+		  <thead class="thead-darrk" style="background-color: #417690;">
+		    <tr>
+		      <th scope="col">Sr. No.</th>
+		      <th scope="col">vehicle registration N0.</th>
+		      <th scope="col">registered owner</th>
+		      <th scope="col">captured at</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% if dfltr_list %}
+			  	{% for data in dfltr_list %}
+			    <tr>
+			      <th scope="row">{{ forloop.counter }}</th>
+			      <td>{{ data.vrn_id.vrn }}</td>
+			      <td>{{ data.vrn_id.reg_owner }}</td>
+			      <td>{{ data.date_time }}</td>
+			    </tr>
+			    {% endfor %}
+			{% else %}
+      			<td colspan="4" class="text-center">No defaulter data for the checkpsot</td>
+			{% endif %}
+		  </tbody>
+		</table>
+	</div>
+	<div class="row">
+		<h4>Closed cases List</h4>
+		<hr>
+		<table class="table table-striped">
+		  <thead class="thead-darrk" style="background-color: #417690;">
+		    <tr>
+		      <th scope="col">Sr. No.</th>
+		      <th scope="col">Vehicle Registration N0.</th>
+		      <th scope="col">Registered Owner</th>
+		      <th scope="col">Closed by, on</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% if closed_cases_list %}
+			  	{% for data in closed_cases_list %}
+			    <tr>
+			      <th scope="row">{{ forloop.counter }}</th>
+			      <td>{{ data.vrn_id.vrn }}</td>
+			      <td>{{ data.vrn_id.reg_owner }}</td>
+			      <td>{{ data.handled_by }}, {{ data.date_time}}</td>
+			    </tr>
+			    {% endfor %}
+			{% else %}
+      			<td colspan="4" class="text-center">No closed cases data for the checkpsot</td>
+			{% endif %}
+		  </tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

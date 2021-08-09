@@ -1,0 +1,9 @@
+db.sqlite3
+*.pyc
+**/migrations
+*.DS_Store
+**/__pycache__
+**/.DS_Store
+*.log
+local_settings.py
+db.sqlite3-journal

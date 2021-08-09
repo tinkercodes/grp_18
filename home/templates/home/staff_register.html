@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+{% block content  %}
+<div class="container">
+	<div class="row mt-5">
+		<div class="col-md-8 mx-auto">	
+			<b class='form-text text-danger text-center'>{{ err_msg }}</b>
+			<div class="card mx-auto" style="max-width: 30rem;">
+					<div class="card-header text-center" style="padding: 0px">
+						<div class="btn-group" role="group" aria-label="Basic example">
+						  <button type="button" class="btn btn-sm" style="background-color: #79AEC8;"><a class="nav-link text-white " aria-current="true" style="padding: 0px" href="{% url 'home:staff_login' %}"><u>Official Login</u></a></button>
+
+						  <button type="button" class="btn btn-sm" style="background-color: #417690;"><a class="nav-link active text-white" style="padding: 0px" href="#">Official Registeration</a></button>
+						  
+						</div>
+						<!-- <ul class="nav nav-tabs card-header-tabs">
+						  <li class="nav-item">
+						    <a class="nav-link text-dark" aria-current="true" href="{% url 'home:staff_login' %}">Official Login</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link active" href="#">Official Registeration</a>
+						  </li>
+						</ul> -->
+					</div>
+					<div class="card-body">
+						<form action="" method="post">
+						  	{% csrf_token %}
+								{% for field in form %}
+								    <div class="form-group">
+								        <small class='form-text text-danger'>{{ field.errors }}</small>
+								        {{ field.label_tag }} {{ field }}
+								        {% if field.help_text %}
+								        <p class="help">{{ field.help_text|safe }}</p>
+								        {% endif %}
+								    </div>
+								{% endfor %}
+							<div class="form-group text-center">
+								<button type="submit" class="btn btn-primary" {{ disable }}>Submit</button>
+								<button type="reset" class="btn btn-secondary">Reset</button>
+							</div>
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

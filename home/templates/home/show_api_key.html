@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+{% block content  %}
+<div class="container">
+	<div class="row mt-5">
+		<div class="col-md-8 mx-auto">
+		  <h5>Check-Post id = {{post_id}}</h5><br><hr>
+		  <h5>API key = {{api_key}}</h5>
+		  <p class="text-danger">Keep the above detail safe for further use.</p>
+		  <a href="{% url 'home:home' %}"><button  class="btn btn-primary">Back</button></a>
+			
+		</div>
+	</div>
+</div>
+{% endblock %}
