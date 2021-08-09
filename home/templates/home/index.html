@@ -1,0 +1,25 @@
+{% extends "./base.html" %}
+{% block content  %}
+<div class="container ">
+	<div class="row mt-5 ">
+		  <a href="vrnForm/" class="btn btn-lg col-md-6 col-11 mx-auto text-white"  tabindex="-1" role="button" style="background-color: #79AEC8;" onmouseover="add_line(this)" onmouseout = "rmv_line(this)" >Authenticate Your Challan</a>
+	</div>
+	<div class="row mt-3">
+		  <a href="{% url 'home:login_checkpost' %}" class="btn btn-lg col-md-6 col-11 mx-auto text-white" style="background-color: #79AEC8;" tabindex="-1" role="button" aria-disabled="true" onmouseover="add_line(this)" onmouseout = "rmv_line(this)" >Check-Post registration and Login</a>
+	</div>
+	<div class="row mt-3">
+		  <a href="{% url 'home:staff_login' %}" class="btn btn-lg col-md-6 col-11 mx-auto text-white" style="background-color: #79AEC8;" tabindex="-1" role="button" aria-disabled="true" onmouseover="add_line(this)" onmouseout = "rmv_line(this)" >Staff Login and Registration</a>
+	</div>
+	<div class="row mt-3">
+		  <a href="admin/" class="btn btn-lg col-md-6 col-11 mx-auto text-white" style="background-color: #79AEC8;" tabindex="-1" role="button" aria-disabled="true" onmouseover="add_line(this)"onmouseout = "rmv_line(this)" >Administator Login</a>
+	</div>
+</div>
+<script type="text/javascript">
+	function add_line(ele){
+		ele.style.background = '#417690';
+	}
+	function rmv_line(ele){
+		ele.style.background = '#79AEC8';
+	}
+</script>
+{% endblock %}
